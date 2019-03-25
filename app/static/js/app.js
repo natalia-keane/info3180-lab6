@@ -11,11 +11,12 @@ Vue.component('app-header', {
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                   <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <router-link to="/" class="nav-link">Home</router-link>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">News</a>
+                  <li class="nav-item active">
+                    <router-link to="/news" class="nav-link">News</router-link>
                   </li>
+
                 </ul>
               </div>
             </nav>
@@ -61,8 +62,8 @@ const NewsList = Vue.component('news-list', {
     `,
     created: function(){
       let self=this;
-       fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=1f0221d86d734ee1acf9a274ce87c1f5')
-      // fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=<your-api-key>')
+      
+       fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=<your-api-key>')
        .then(function(response) {
          return response.json();
        })
